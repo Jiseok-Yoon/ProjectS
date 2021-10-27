@@ -2825,8 +2825,9 @@ GameObject:
   - component: {fileID: 401996496}
   - component: {fileID: 401996499}
   - component: {fileID: 401996498}
+  - component: {fileID: 401996497}
   m_Layer: 5
-  m_Name: LoadGamePanel
+  m_Name: UILoadGamePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2854,6 +2855,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -800, y: -400}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &401996497
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401996495}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &401996498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4839,7 +4852,7 @@ GameObject:
   - component: {fileID: 832235554}
   - component: {fileID: 832235553}
   m_Layer: 5
-  m_Name: TitleButtonPanel
+  m_Name: UITitleButtonPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6721,8 +6734,9 @@ GameObject:
   - component: {fileID: 1009057018}
   - component: {fileID: 1009057020}
   - component: {fileID: 1009057019}
+  - component: {fileID: 1009057021}
   m_Layer: 5
-  m_Name: AchievementsPanel
+  m_Name: UIAchievementsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6788,6 +6802,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009057017}
   m_CullTransparentMesh: 1
+--- !u!225 &1009057021
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009057017}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1022346239
 GameObject:
   m_ObjectHideFlags: 0
@@ -9697,7 +9723,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000010955725}
+  m_AnchoredPosition: {x: 0, y: 0.000032901764}
   m_SizeDelta: {x: 0, y: 480}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1385996536
@@ -11959,7 +11985,7 @@ GameObject:
   - component: {fileID: 1621355598}
   - component: {fileID: 1621355600}
   m_Layer: 5
-  m_Name: NewGamePanel
+  m_Name: UINewGamePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13240,7 +13266,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.000032901764}
   m_SizeDelta: {x: 0, y: 480}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1942595372
@@ -14619,13 +14645,26 @@ GameObject:
   - component: {fileID: 3383712726534979040}
   - component: {fileID: 1322737756668535108}
   - component: {fileID: 1816751753622347123}
+  - component: {fileID: 1682755487541618588}
   m_Layer: 5
-  m_Name: HelpPanel
+  m_Name: UIHelpPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!225 &1682755487541618588
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682755487541618587}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &1816751753622347123
 MonoBehaviour:
   m_ObjectHideFlags: 0
