@@ -9,5 +9,6 @@ namespace ProjectS.Define
 {
     public enum IntroPhase { Start, ApplicationSetting, Server, StaticData, UserData, Resource, UI, Complete }
 
+    public enum TitleButtonType { newGame, loadGame, help, achievements };
 }
 

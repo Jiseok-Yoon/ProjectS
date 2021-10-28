@@ -25,10 +25,20 @@ namespace ProjectS.UI.Title
             } 
         }
 
+
         protected virtual void Start()
         {
             // 비활성화 상태로 시작합니다.
             ClosePanel();
+        }
+
+        protected virtual void Update()
+        {
+            // ESC키가 눌리면 패널을 닫습니다.
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                ClosePanel();
+            }
         }
         /// <summary>
         /// 패널을 엽니다.

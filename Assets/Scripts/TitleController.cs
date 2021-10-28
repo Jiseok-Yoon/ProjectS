@@ -1,4 +1,5 @@
 using ProjectS.Define;
+using ProjectS.UI.Title;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,7 @@ namespace ProjectS
         // 현재 페이즈 상태
         private IntroPhase introPhase;
         // 타이틀 버튼 패널
-        public Transform buttonPanel;
+        public UITitleButton titleButtonPanel;
 
         /// <summary>
         /// loadComplete 프로퍼티
@@ -81,7 +82,7 @@ namespace ProjectS
                     break;
                 // UI관리를 시작합니다.
                 case IntroPhase.UI:
-
+                    titleButtonPanel.Initialize();
                     LoadComplete = true;
                     break;
                 // 로딩 완료
