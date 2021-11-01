@@ -3,7 +3,7 @@ using ProjectS.UI.Title;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using static ProjectS.Define.Title;
 
 namespace ProjectS
 {

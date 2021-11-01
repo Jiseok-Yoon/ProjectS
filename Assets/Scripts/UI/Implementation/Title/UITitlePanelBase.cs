@@ -25,7 +25,6 @@ namespace ProjectS.UI.Title
             } 
         }
 
-
         protected virtual void Start()
         {
             // 비활성화 상태로 시작합니다.

@@ -7,8 +7,18 @@ using UnityEngine;
 /// </summary>
 namespace ProjectS.Define
 {
-    public enum IntroPhase { Start, ApplicationSetting, Server, StaticData, UserData, Resource, UI, Complete }
+    public class Title
+    {
+        public enum IntroPhase { Start, ApplicationSetting, Server, StaticData, UserData, Resource, UI, Complete }
 
-    public enum TitleButtonType { newGame, loadGame, help, achievements };
+        public enum TitleButtonType { newGame, loadGame, help, achievements };
+
+    }
+
+    public class Resource
+    {
+        public enum AtlasType { CharacterAtlas }
+    }
+
 }
 
