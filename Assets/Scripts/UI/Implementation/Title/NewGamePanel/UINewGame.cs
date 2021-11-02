@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 namespace ProjectS.UI.Title
 {
+    /// <summary>
+    /// NewGame패널을 컨트롤할 클래스입니다.
+    /// </summary>
     public class UINewGame : UITitlePanelBase
     {
         public CharacterChoice CharacterChoice;

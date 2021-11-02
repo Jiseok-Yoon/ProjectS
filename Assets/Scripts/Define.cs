@@ -17,7 +17,12 @@ namespace ProjectS.Define
 
     public class Resource
     {
-        public enum AtlasType { CharacterAtlas }
+        public enum AtlasType { CharacterImageAtlas }
+    }
+
+    public class Character
+    {
+        public enum CharacterName { character1, character2 }
     }
 
 }

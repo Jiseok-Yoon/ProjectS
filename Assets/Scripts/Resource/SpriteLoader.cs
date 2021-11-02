@@ -53,5 +53,15 @@ namespace ProjectS.Resource
 
             return atlasDic[type].GetSprite(spriteKey);
         }
+
+        /// <summary>
+        /// 등록된 아틀라스 타입에 맞는 아틀라스를 반환해줍니다.
+        /// </summary>
+        /// <param name="type">아틀라스 타입</param>
+        /// <returns>SpriteAtlas</returns>
+        public static SpriteAtlas GetAtlas(AtlasType type)
+        {
+            return atlasDic[type];
+        }
     }
 }
