@@ -25,5 +25,11 @@ namespace ProjectS.Define
         public enum CharacterName { character1, character2 }
     }
 
+    public class StaticData
+    {
+        public const string SDPath = "Assets/StaticData";
+        public const string SDExcelPath = "Assets/StaticData/Excel";
+        public const string SDJsonPath = "Assets/StaticData/Json";
+    }
 }
 

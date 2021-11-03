@@ -15,6 +15,8 @@ namespace ProjectS.UI.Title
 {
     public class CharacterChoice
     {
+        private const int CHARACTER_DESCRIPTION_SECTOR = 1001;
+
         // 캐릭터 이름 표시
         public TextMeshProUGUI characterName;
         // 캐릭터 이미지 표시
@@ -86,10 +88,15 @@ namespace ProjectS.UI.Title
         /// <param name="index">설정할 캐릭터 순서를 입력합니다.</param>
         private void SetCharacter(int index)
         {
+            // 캐릭터 이미지를 변경합니다.
             characterImage.sprite = SpriteLoader.GetSprite(AtlasType.CharacterImageAtlas, ((CharacterName)index).ToString());
-
+            // 캐릭터 이름을 변경합니다.
             characterName.text = ((CharacterName)index).ToString();
-            descriptionText.text = 
+            // 캐릭터 설명을 변경합니다.
+            var sdString = GameManager.SD.sdString;
+            descriptionText.text = sdString.Find(_ => _.index == CHARACTER_DESCRIPTION_SECTOR + index).kr;
         }
+
+
     }
 }

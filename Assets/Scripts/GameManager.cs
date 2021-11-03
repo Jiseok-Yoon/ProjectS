@@ -1,4 +1,5 @@
 ﻿using ProjectS;
+using ProjectS.SD;
 using ProjectS.Util;
 using System;
 using System.Collections.Generic;
@@ -38,5 +39,14 @@ namespace ProjectS
             // 앱 실행 중 장시간 대기 시에도 화면이 꺼지지 않게
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
         }
+
+        /// <summary>
+        /// 기획 데이터를 들고 있을 필드
+        /// </summary>
+        // private 필드 인스펙터 노출을 위한 직렬화.
+        [SerializeField]
+        private StaticDataModule sd = new StaticDataModule();
+        public static StaticDataModule SD => Instance.sd;
+
     }
 }

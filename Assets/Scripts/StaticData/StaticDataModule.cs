@@ -15,6 +15,7 @@ namespace ProjectS.SD
     [Serializable]
     public class StaticDataModule
     {
+        public List<SDString> sdString = new List<SDString>();
 
         /// <summary>
         /// 로더를 통해 기획 데이터를 불러옵니다.
@@ -22,7 +23,7 @@ namespace ProjectS.SD
         public void Initialize()
         {
             var loader = new StaticDataLoader();
-
+            loader.Load<SDString>(out sdString);
         }
 
         /// <summary>
