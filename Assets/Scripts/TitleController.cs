@@ -1,4 +1,5 @@
 using ProjectS.Define;
+using ProjectS.Resouce;
 using ProjectS.UI.Title;
 using System.Collections;
 using System.Collections.Generic;
@@ -66,7 +67,8 @@ namespace ProjectS
                     break;
                 // 기획 데이터를 불러옵니다.
                 case IntroPhase.StaticData:
-
+                    // 기획데이터를 로드합니다.
+                    GameManager.SD.Initialize();
                     LoadComplete = true;
                     break;
                 
@@ -77,7 +79,8 @@ namespace ProjectS
                     break;
                 // 리소스 파일을 불러옵니다.
                 case IntroPhase.Resource:
-
+                    // 아틀라스와 프리팹을 로드합니다.
+                    ResourceManager.Instance.Initialize();
                     LoadComplete = true;
                     break;
                 // UI관리를 시작합니다.

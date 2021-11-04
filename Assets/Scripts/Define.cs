@@ -22,7 +22,7 @@ namespace ProjectS.Define
 
     public class Character
     {
-        public enum CharacterName { character1, character2 }
+        public enum CharacterName { Character1, Character2 }
     }
 
     public class StaticData

@@ -36,6 +36,8 @@ namespace ProjectS.UI.Title
             {
                 btn.onClick.AddListener(() => OpenPanel(buttons[btn]));
             }
+
+            newGamePanel.Initialize();
         }
 
         /// <summary>

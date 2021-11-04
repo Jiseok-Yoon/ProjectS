@@ -25,6 +25,9 @@ namespace ProjectS
             // 타이틀 컨트롤러를 찾아 초기화하고 로딩을 시작합니다.
             var titleController = FindObjectOfType<TitleController>();
             titleController.Initialize();
+
+            // 게임 매니저가 파괴되지 않게 합니다.
+            DontDestroyOnLoad(this);
         }
 
         /// <summary>

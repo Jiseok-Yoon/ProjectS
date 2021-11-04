@@ -68,7 +68,6 @@ namespace ProjectS.Util
             if (instance == null)
             {
                 instance = this as T;
-                DontDestroyOnLoad(instance);
             }
             // 만약 이 때 인스턴스가 존재한다면 객체가 초기화 되기전에 해당 인스턴스에 접근하였다는 것
             // 해당 클래스는 모노를 상속받았고 일반적으로 씬(하이라키)에 올려서 사용함

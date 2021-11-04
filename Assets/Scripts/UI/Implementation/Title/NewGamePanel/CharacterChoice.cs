@@ -13,7 +13,7 @@ using static ProjectS.Define.Resource;
 
 namespace ProjectS.UI.Title
 {
-    public class CharacterChoice
+    public class CharacterChoice : MonoBehaviour
     {
         private const int CHARACTER_DESCRIPTION_SECTOR = 1001;
 
@@ -28,9 +28,9 @@ namespace ProjectS.UI.Title
         public Button nextBtn;
 
         // 캐릭터 이미지 아틀라스
-        private SpriteAtlas characterAtlas = SpriteLoader.GetAtlas(AtlasType.CharacterImageAtlas);
+        private SpriteAtlas characterAtlas;
         // 캐릭터 순서
-        private int index = 0;
+        private int index;
 
         /// <summary>
         /// 캐릭터 선택란을 초기화합니다.
@@ -38,12 +38,15 @@ namespace ProjectS.UI.Title
         /// </summary>
         public void Initialize()
         {
+            // 활성화상태로 시작합니다.
+            gameObject.SetActive(true);
+            characterAtlas = SpriteLoader.GetAtlas(AtlasType.CharacterImageAtlas);
             // 버튼에 리스너를 답니다.
             previousBtn.onClick.AddListener(PreviousCharacter);
             nextBtn.onClick.AddListener(NextCharacter);
 
-            // 첫번째 캐릭터를 설정합니다.
-            SetCharacter(index);
+            // 첫번째 캐릭터로 설정합니다.
+            SetCharacter(index = 0);
             
         }
         /// <summary>
@@ -51,8 +54,15 @@ namespace ProjectS.UI.Title
         /// </summary>
         private void PreviousCharacter()
         {
+            // 캐릭터 아틀라스가 없다면 리턴합니다.
+            if (characterAtlas == null)
+            {
+                Debug.LogError("캐릭터 정보를 불러올 수 없습니다.");
+                return;
+            }
+
             // 첫 번째 캐릭터라면 마지막 캐릭터를 설정합니다.
-            if (--index < 0)
+            if (index <= 0)
             {
                 index = characterAtlas.spriteCount - 1;
                 SetCharacter(index);
@@ -61,7 +71,7 @@ namespace ProjectS.UI.Title
             // 아니라면 이전 캐릭터를 설정합니다.
             else
             {
-                SetCharacter(index);
+                SetCharacter(--index);
             }
         }
 
@@ -70,8 +80,15 @@ namespace ProjectS.UI.Title
         /// </summary>
         private void NextCharacter()
         {
+            // 캐릭터 아틀라스가 없다면 리턴합니다.
+            if (characterAtlas == null)
+            {
+                Debug.LogError("캐릭터 정보를 불러올 수 없습니다.");
+                return;
+            }
+
             // 마지막 캐릭터라면 첫 번째 캐릭터를 설정합니다.
-            if (++index >= characterAtlas.spriteCount)
+            if (index >= characterAtlas.spriteCount - 1)
             {
                 SetCharacter(index = 0);
             }
@@ -96,7 +113,13 @@ namespace ProjectS.UI.Title
             var sdString = GameManager.SD.sdString;
             descriptionText.text = sdString.Find(_ => _.index == CHARACTER_DESCRIPTION_SECTOR + index).kr;
         }
-
-
+        /// <summary>
+        /// 패널의 내용을 초기 상태로 되돌립니다.
+        /// </summary>
+        public void ClearPanel()
+        {
+            // 첫번째 캐릭터로 설정합니다.
+            SetCharacter(index = 0);
+        }
     }
 }

@@ -61,6 +61,10 @@ namespace ProjectS.Resource
         /// <returns>SpriteAtlas</returns>
         public static SpriteAtlas GetAtlas(AtlasType type)
         {
+            // 아틀라스 키가 딕셔너리에 존재하지 않는다면 리턴
+            if (!atlasDic.ContainsKey(type))
+                return null;
+
             return atlasDic[type];
         }
     }

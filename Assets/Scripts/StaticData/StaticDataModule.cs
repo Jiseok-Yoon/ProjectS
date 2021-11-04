@@ -23,7 +23,7 @@ namespace ProjectS.SD
         public void Initialize()
         {
             var loader = new StaticDataLoader();
-            loader.Load<SDString>(out sdString);
+            loader.Load(out sdString);
         }
 
         /// <summary>
