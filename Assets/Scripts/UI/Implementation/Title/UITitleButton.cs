@@ -34,6 +34,7 @@ namespace ProjectS.UI.Title
 
             foreach(Button btn in buttons.Keys)
             {
+                // c# closer
                 btn.onClick.AddListener(() => OpenPanel(buttons[btn]));
             }
 
@@ -61,6 +62,7 @@ namespace ProjectS.UI.Title
                     achievementsPanel.OpenPanel();
                     break;
             }
+            
 
         }
     }

@@ -22,6 +22,8 @@ namespace ProjectS.Define
 
     public class Character
     {
+        public const int CHARACTER_DESCRIPTION_SECTOR = 1001;
+
         public enum CharacterName { Character1, Character2 }
     }
 
@@ -30,6 +32,13 @@ namespace ProjectS.Define
         public const string SDPath = "Assets/StaticData";
         public const string SDExcelPath = "Assets/StaticData/Excel";
         public const string SDJsonPath = "Assets/StaticData/Json";
+    }
+
+    public class IngameOption
+    {
+        public enum DifficultOptionType { }
+        public enum DetailOptionType { }
+
     }
 }
 

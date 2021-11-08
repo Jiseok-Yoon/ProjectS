@@ -15,7 +15,6 @@ namespace ProjectS.UI.Title
 {
     public class CharacterChoice : MonoBehaviour
     {
-        private const int CHARACTER_DESCRIPTION_SECTOR = 1001;
 
         // 캐릭터 이름 표시
         public TextMeshProUGUI characterName;
