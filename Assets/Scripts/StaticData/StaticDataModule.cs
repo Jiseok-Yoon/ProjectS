@@ -16,6 +16,7 @@ namespace ProjectS.SD
     public class StaticDataModule
     {
         public List<SDString> sdString = new List<SDString>();
+        public List<SDIngameOption> sdIngameOption = new List<SDIngameOption>();
 
         /// <summary>
         /// 로더를 통해 기획 데이터를 불러옵니다.
@@ -24,6 +25,7 @@ namespace ProjectS.SD
         {
             var loader = new StaticDataLoader();
             loader.Load(out sdString);
+            loader.Load(out sdIngameOption);
         }
 
         /// <summary>

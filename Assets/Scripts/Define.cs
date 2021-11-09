@@ -36,8 +36,7 @@ namespace ProjectS.Define
 
     public class IngameOption
     {
-        public enum DifficultOptionType { }
-        public enum DetailOptionType { }
+        public enum OptionCategory { Difficulty, Detail }
 
     }
 }

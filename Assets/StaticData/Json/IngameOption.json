@@ -1,0 +1,176 @@
+﻿[
+  {
+    "index": 100,
+    "optionCategory": "Difficulty",
+    "optionName": "Difficulty",
+    "optionValue": [
+      "불가능",
+      " 어려움",
+      " 보통",
+      " 쉬움",
+      " 사용자 정의"
+    ]
+  },
+  {
+    "index": 101,
+    "optionCategory": "Difficulty",
+    "optionName": "Battle",
+    "optionValue": [
+      "불가능",
+      " 어려움",
+      " 보통",
+      " 쉬움"
+    ]
+  },
+  {
+    "index": 102,
+    "optionCategory": "Difficulty",
+    "optionName": "Productivity",
+    "optionValue": [
+      "불가능",
+      " 어려움",
+      " 보통",
+      " 쉬움"
+    ]
+  },
+  {
+    "index": 103,
+    "optionCategory": "Difficulty",
+    "optionName": "Technology",
+    "optionValue": [
+      "불가능",
+      " 어려움",
+      " 보통",
+      " 쉬움"
+    ]
+  },
+  {
+    "index": 104,
+    "optionCategory": "Difficulty",
+    "optionName": "Commerce",
+    "optionValue": [
+      "불가능",
+      " 어려움",
+      " 보통",
+      " 쉬움"
+    ]
+  },
+  {
+    "index": 105,
+    "optionCategory": "Difficulty",
+    "optionName": "Population",
+    "optionValue": [
+      "불가능",
+      " 어려움",
+      " 보통",
+      " 쉬움"
+    ]
+  },
+  {
+    "index": 106,
+    "optionCategory": "Difficulty",
+    "optionName": "Diplomacy",
+    "optionValue": [
+      "불가능",
+      " 어려움",
+      " 보통",
+      " 쉬움"
+    ]
+  },
+  {
+    "index": 107,
+    "optionCategory": "Difficulty",
+    "optionName": "Culture",
+    "optionValue": [
+      "불가능",
+      " 어려움",
+      " 보통",
+      " 쉬움"
+    ]
+  },
+  {
+    "index": 108,
+    "optionCategory": "Detail",
+    "optionName": "GameSpeed",
+    "optionValue": [
+      "매우 빠름",
+      " 빠름",
+      " 보통",
+      " 느림"
+    ]
+  },
+  {
+    "index": 109,
+    "optionCategory": "Detail",
+    "optionName": "Resource",
+    "optionValue": [
+      "편파적 분포",
+      " 균형적 분포",
+      " 일반적 분포"
+    ]
+  },
+  {
+    "index": 110,
+    "optionCategory": "Detail",
+    "optionName": "Weather",
+    "optionValue": [
+      "짓궃은 날씨",
+      " 열대",
+      " 냉대",
+      " 맑음"
+    ]
+  },
+  {
+    "index": 111,
+    "optionCategory": "Detail",
+    "optionName": "Disaster",
+    "optionValue": [
+      "빈번한 재앙",
+      " 잦은 재앙",
+      " 간헐적 재앙",
+      " 재앙 없음"
+    ]
+  },
+  {
+    "index": 112,
+    "optionCategory": "Detail",
+    "optionName": "EventEffect",
+    "optionValue": [
+      "엄청난 영향",
+      " 큰 영향",
+      " 작은 영향",
+      " 미미한 영향"
+    ]
+  },
+  {
+    "index": 113,
+    "optionCategory": "Detail",
+    "optionName": "Monster",
+    "optionValue": [
+      "마수의 시대",
+      " 강력한 마수",
+      " 일반 마수",
+      " 약한 마수"
+    ]
+  },
+  {
+    "index": 114,
+    "optionCategory": "Detail",
+    "optionName": "CityState",
+    "optionValue": [
+      "왕국과 비견됨",
+      " 핵심 도시",
+      " 작은 도시"
+    ]
+  },
+  {
+    "index": 115,
+    "optionCategory": "Detail",
+    "optionName": "DragonEvent",
+    "optionValue": [
+      "잦음",
+      " 보통",
+      " 적음"
+    ]
+  }
+]
