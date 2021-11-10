@@ -115,7 +115,7 @@ namespace ProjectS.UI.Title
         /// <summary>
         /// 패널의 내용을 초기 상태로 되돌립니다.
         /// </summary>
-        public void ClearPanel()
+        public void ResetPanel()
         {
             // 첫번째 캐릭터로 설정합니다.
             SetCharacter(index = 0);

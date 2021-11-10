@@ -9,7 +9,8 @@
       " 보통",
       " 쉬움",
       " 사용자 정의"
-    ]
+    ],
+    "defaultOptionIndex": 2
   },
   {
     "index": 101,
@@ -20,7 +21,8 @@
       " 어려움",
       " 보통",
       " 쉬움"
-    ]
+    ],
+    "defaultOptionIndex": 2
   },
   {
     "index": 102,
@@ -31,7 +33,8 @@
       " 어려움",
       " 보통",
       " 쉬움"
-    ]
+    ],
+    "defaultOptionIndex": 2
   },
   {
     "index": 103,
@@ -42,7 +45,8 @@
       " 어려움",
       " 보통",
       " 쉬움"
-    ]
+    ],
+    "defaultOptionIndex": 2
   },
   {
     "index": 104,
@@ -53,7 +57,8 @@
       " 어려움",
       " 보통",
       " 쉬움"
-    ]
+    ],
+    "defaultOptionIndex": 2
   },
   {
     "index": 105,
@@ -64,7 +69,8 @@
       " 어려움",
       " 보통",
       " 쉬움"
-    ]
+    ],
+    "defaultOptionIndex": 2
   },
   {
     "index": 106,
@@ -75,7 +81,8 @@
       " 어려움",
       " 보통",
       " 쉬움"
-    ]
+    ],
+    "defaultOptionIndex": 2
   },
   {
     "index": 107,
@@ -86,7 +93,8 @@
       " 어려움",
       " 보통",
       " 쉬움"
-    ]
+    ],
+    "defaultOptionIndex": 2
   },
   {
     "index": 108,
@@ -97,7 +105,8 @@
       " 빠름",
       " 보통",
       " 느림"
-    ]
+    ],
+    "defaultOptionIndex": 2
   },
   {
     "index": 109,
@@ -107,7 +116,8 @@
       "편파적 분포",
       " 균형적 분포",
       " 일반적 분포"
-    ]
+    ],
+    "defaultOptionIndex": 2
   },
   {
     "index": 110,
@@ -118,7 +128,8 @@
       " 열대",
       " 냉대",
       " 맑음"
-    ]
+    ],
+    "defaultOptionIndex": 3
   },
   {
     "index": 111,
@@ -129,7 +140,8 @@
       " 잦은 재앙",
       " 간헐적 재앙",
       " 재앙 없음"
-    ]
+    ],
+    "defaultOptionIndex": 2
   },
   {
     "index": 112,
@@ -140,7 +152,8 @@
       " 큰 영향",
       " 작은 영향",
       " 미미한 영향"
-    ]
+    ],
+    "defaultOptionIndex": 2
   },
   {
     "index": 113,
@@ -151,7 +164,8 @@
       " 강력한 마수",
       " 일반 마수",
       " 약한 마수"
-    ]
+    ],
+    "defaultOptionIndex": 2
   },
   {
     "index": 114,
@@ -161,7 +175,8 @@
       "왕국과 비견됨",
       " 핵심 도시",
       " 작은 도시"
-    ]
+    ],
+    "defaultOptionIndex": 1
   },
   {
     "index": 115,
@@ -171,6 +186,7 @@
       "잦음",
       " 보통",
       " 적음"
-    ]
+    ],
+    "defaultOptionIndex": 1
   }
 ]

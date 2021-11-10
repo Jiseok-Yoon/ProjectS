@@ -80,13 +80,13 @@ namespace ProjectS.UI.Title
             Close();
         }
         /// <summary>
-        /// 패널을 닫고 캐릭터 선택창과 게임 옵션 창을 초기화합니다.
+        /// 패널을 닫고 캐릭터 선택창과 게임 옵션 창을 원상태로 되돌립니다.
         /// </summary>
         private void Close()
         {
             ClosePanel();
-            characterChoice.ClearPanel();
-            ingameOption.ClearPanel();
+            characterChoice.ResetPanel();
+            ingameOption.ResetPanel();
         }
         
         /// <summary>
