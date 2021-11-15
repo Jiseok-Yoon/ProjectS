@@ -114,6 +114,7 @@ namespace ProjectS.UI.Title
         private void StartGame()
         {
 
+            ingameOption.OptionSave();
         }
     }
 

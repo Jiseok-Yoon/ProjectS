@@ -26,6 +26,7 @@ namespace ProjectS
             var titleController = FindObjectOfType<TitleController>();
             titleController.Initialize();
 
+            
             // 게임 매니저가 파괴되지 않게 합니다.
             DontDestroyOnLoad(this);
         }
@@ -51,5 +52,20 @@ namespace ProjectS
         private StaticDataModule sd = new StaticDataModule();
         public static StaticDataModule SD => Instance.sd;
 
+        /// <summary>
+        /// 인게임 옵션의 정보를 들고있을 필드
+        /// </summary>
+        [SerializeField]
+        private IngameOptionData ingameOption;
+        public static IngameOptionData IngameOption
+        {
+            get => Instance.ingameOption;
+            set => Instance.ingameOption = value;
+        }
+
+        
+
+
+        
     }
 }

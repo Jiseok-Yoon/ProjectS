@@ -29,7 +29,7 @@ namespace ProjectS.UI.Title
         // 캐릭터 이미지 아틀라스
         private SpriteAtlas characterAtlas;
         // 캐릭터 순서
-        private int index;
+        private int currentIndex;
 
         /// <summary>
         /// 캐릭터 선택란을 초기화합니다.
@@ -45,7 +45,7 @@ namespace ProjectS.UI.Title
             nextBtn.onClick.AddListener(NextCharacter);
 
             // 첫번째 캐릭터로 설정합니다.
-            SetCharacter(index = 0);
+            SetCharacter(currentIndex = 0);
             
         }
         /// <summary>
@@ -61,16 +61,16 @@ namespace ProjectS.UI.Title
             }
 
             // 첫 번째 캐릭터라면 마지막 캐릭터를 설정합니다.
-            if (index <= 0)
+            if (currentIndex <= 0)
             {
-                index = characterAtlas.spriteCount - 1;
-                SetCharacter(index);
+                currentIndex = characterAtlas.spriteCount - 1;
+                SetCharacter(currentIndex);
                 return;
             }
             // 아니라면 이전 캐릭터를 설정합니다.
             else
             {
-                SetCharacter(--index);
+                SetCharacter(--currentIndex);
             }
         }
 
@@ -87,14 +87,14 @@ namespace ProjectS.UI.Title
             }
 
             // 마지막 캐릭터라면 첫 번째 캐릭터를 설정합니다.
-            if (index >= characterAtlas.spriteCount - 1)
+            if (currentIndex >= characterAtlas.spriteCount - 1)
             {
-                SetCharacter(index = 0);
+                SetCharacter(currentIndex = 0);
             }
             // 아니라면 다음 캐릭터를 설정합니다.
             else
             {
-                SetCharacter(++index);
+                SetCharacter(++currentIndex);
             }
         }
 
@@ -118,7 +118,15 @@ namespace ProjectS.UI.Title
         public void ResetPanel()
         {
             // 첫번째 캐릭터로 설정합니다.
-            SetCharacter(index = 0);
+            SetCharacter(currentIndex = 0);
+        }
+
+        /// <summary>
+        /// 선택된 캐릭터를 게임 매니저의 플레이어 데이터에 저장합니다.
+        /// </summary>
+        public void SaveCharacter()
+        {
+
         }
     }
 }

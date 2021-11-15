@@ -65,5 +65,12 @@ namespace ProjectS.UI.Title
         {
             SetOptionValue(--currentOptionIndex);
         }
+        /// <summary>
+        /// 옵션 값을 반환합니다.
+        /// </summary>
+        public string GetOptionValue()
+        {
+            return optionText.text;
+        }
     }
 }
