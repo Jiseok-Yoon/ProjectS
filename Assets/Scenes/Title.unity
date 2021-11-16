@@ -10140,9 +10140,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6328e3bab906e694ba60e27a7c43514b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadProgress: 0
   sd:
     sdString: []
     sdIngameOption: []
+    sdCharacter: []
+  boCharacter:
+    sdCharacter:
+      index: 0
+      characterName: 
+      featureRef: 0
 --- !u!4 &1043644967
 Transform:
   m_ObjectHideFlags: 0
@@ -11121,6 +11128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70801de27120de04ba5725c4bbdeeb6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficultyTab: {fileID: 4458503356802856596}
+  detailTab: {fileID: 1409398981}
+  difficultyOptionHolder: {fileID: 62445986}
+  detailOptionHolder: {fileID: 1096930076}
 --- !u!1 &1138893588
 GameObject:
   m_ObjectHideFlags: 0

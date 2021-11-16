@@ -30,8 +30,10 @@ namespace ProjectS.UI.Title
         /// </summary>
         public void Initialize()
         {
-            phase = NewGamePhase.CharacterChoice;
             characterChoice.Initialize();
+            ingameOption.Initialize();
+            phase = NewGamePhase.CharacterChoice;
+            OnPhase(phase);
             decideButton.onClick.AddListener(DecideButtonOnClicked);
             backButton.onClick.AddListener(BackButtonOnClicked);
             closeButton.onClick.AddListener(CloseButtonOnClicked);
@@ -113,7 +115,7 @@ namespace ProjectS.UI.Title
         /// </summary>
         private void StartGame()
         {
-
+            characterChoice.SaveCharacter();
             ingameOption.OptionSave();
         }
     }

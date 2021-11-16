@@ -17,7 +17,7 @@ namespace ProjectS.SD
     {
         public List<SDString> sdString = new List<SDString>();
         public List<SDIngameOption> sdIngameOption = new List<SDIngameOption>();
-
+        public List<SDCharacter> sdCharacter = new List<SDCharacter>();
         /// <summary>
         /// 로더를 통해 기획 데이터를 불러옵니다.
         /// </summary>
@@ -26,6 +26,7 @@ namespace ProjectS.SD
             var loader = new StaticDataLoader();
             loader.Load(out sdString);
             loader.Load(out sdIngameOption);
+            loader.Load(out sdCharacter);
         }
 
         /// <summary>

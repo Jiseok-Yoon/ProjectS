@@ -19,7 +19,6 @@ namespace ProjectS.UI.Title
         public UIAchievements achievementsPanel;
         // 타이틀 버튼과 버튼의 타입을 가질 딕셔너리입니다.
         public Dictionary<Button, TitleButtonType> buttons = new Dictionary<Button, TitleButtonType>();
-        public int i = 0;
         /// <summary>
         /// 각 버튼에 클릭 리스너를 달아주며 초기화합니다.
         /// </summary>

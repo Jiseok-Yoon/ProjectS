@@ -12,12 +12,12 @@ namespace ProjectS.UI.Title
 {
     public class IngameOptionSlot : MonoBehaviour
     {
-        public string optionName;
+        private string optionName;
         private TextMeshProUGUI optionText;
         public Button nextButton;
         public Button previousButton;
-        public SDIngameOption sdIngameOption;
-        public int currentOptionIndex;
+        private SDIngameOption sdIngameOption;
+        private int currentOptionIndex;
 
         /// <summary>
         /// 옵션 슬롯을 초기화합니다.
@@ -65,12 +65,18 @@ namespace ProjectS.UI.Title
         {
             SetOptionValue(--currentOptionIndex);
         }
-        /// <summary>
-        /// 옵션 값을 반환합니다.
-        /// </summary>
+
+        public string GetOptionName()
+        {
+            return optionName;
+        }
         public string GetOptionValue()
         {
             return optionText.text;
+        }
+        public SDIngameOption GetSDIngameOption()
+        {
+            return sdIngameOption;
         }
     }
 }

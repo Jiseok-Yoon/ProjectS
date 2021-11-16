@@ -1,4 +1,6 @@
-﻿using ProjectS.Resource;
+﻿using ProjectS.DB;
+using ProjectS.Resource;
+using ProjectS.SD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +17,6 @@ namespace ProjectS.UI.Title
 {
     public class CharacterChoice : MonoBehaviour
     {
-
         // 캐릭터 이름 표시
         public TextMeshProUGUI characterName;
         // 캐릭터 이미지 표시
@@ -104,10 +105,13 @@ namespace ProjectS.UI.Title
         /// <param name="index">설정할 캐릭터 순서를 입력합니다.</param>
         private void SetCharacter(int index)
         {
-            // 캐릭터 이미지를 변경합니다.
-            characterImage.sprite = SpriteLoader.GetSprite(AtlasType.CharacterImageAtlas, ((CharacterName)index).ToString());
+            // 캐릭터 기획 데이터를 가져옵니다.
+            var sdCharacters = GameManager.SD.sdCharacter;
+            var sdCharacterName = sdCharacters.ElementAt(index).characterName;
+            // 캐릭터 이미지를 변경합니다. 이미지 이름은 캐릭터 이름과 같습니다.
+            characterImage.sprite = SpriteLoader.GetSprite(AtlasType.CharacterImageAtlas, sdCharacterName);
             // 캐릭터 이름을 변경합니다.
-            characterName.text = ((CharacterName)index).ToString();
+            characterName.text = sdCharacterName;
             // 캐릭터 설명을 변경합니다.
             var sdString = GameManager.SD.sdString;
             descriptionText.text = sdString.Find(_ => _.index == CHARACTER_DESCRIPTION_SECTOR + index).kr;
@@ -122,11 +126,11 @@ namespace ProjectS.UI.Title
         }
 
         /// <summary>
-        /// 선택된 캐릭터를 게임 매니저의 플레이어 데이터에 저장합니다.
+        /// 선택된 캐릭터를 게임 매니저의 BoCharacter에 저장합니다.
         /// </summary>
         public void SaveCharacter()
         {
-
+            GameManager.BoCharacter = new BoCharacter(GameManager.SD.sdCharacter[currentIndex]);
         }
     }
 }

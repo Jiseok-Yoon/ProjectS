@@ -14,7 +14,7 @@ namespace ProjectS.UI.Title
         public Button detailTab;
         public Transform difficultyOptionHolder;
         public Transform detailOptionHolder;
-        public List<IngameOptionSlot> ingameOptionSlots = new List<IngameOptionSlot>();
+        private List<IngameOptionSlot> ingameOptionSlots = new List<IngameOptionSlot>();
         private enum OptionTabType{ Difficulty, Detail}
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace ProjectS.UI.Title
         {
             foreach(IngameOptionSlot optionSlot in ingameOptionSlots)
             {
-                optionSlot.SetOptionValue(optionSlot.sdIngameOption.defaultOptionIndex);
+                optionSlot.SetOptionValue(optionSlot.GetSDIngameOption().defaultOptionIndex);
             }
         }
         /// <summary>
@@ -73,7 +73,7 @@ namespace ProjectS.UI.Title
 
             foreach(IngameOptionSlot slot in ingameOptionSlots)
             {
-                ingameOptionData.SetOptionValue(slot.optionName, slot.GetOptionValue());
+                ingameOptionData.SetOptionValue(slot.GetOptionName(), slot.GetOptionValue());
             }
 
             // 게임 매니저에 등록합니다.

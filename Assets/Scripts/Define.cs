@@ -7,6 +7,11 @@ using UnityEngine;
 /// </summary>
 namespace ProjectS.Define
 {
+    /// <summary>
+    /// 게임에 사용되는 씬 종류
+    /// </summary>
+    public enum SceneType { Title, Ingame, Loading }
+
     public class Title
     {
         public enum IntroPhase { Start, ApplicationSetting, Server, StaticData, UserData, Resource, UI, Complete }
@@ -23,8 +28,6 @@ namespace ProjectS.Define
     public class Character
     {
         public const int CHARACTER_DESCRIPTION_SECTOR = 1001;
-
-        public enum CharacterName { Character1, Character2 }
     }
 
     public class StaticData
