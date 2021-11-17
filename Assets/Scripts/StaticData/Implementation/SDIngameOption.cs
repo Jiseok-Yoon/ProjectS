@@ -10,6 +10,7 @@ namespace ProjectS.SD
     [Serializable]
     public class SDIngameOption : StaticData
     {
+        public OptionCategory optionCategory;
         public string optionName;
         public string[] optionValue;
         public int defaultOptionIndex;

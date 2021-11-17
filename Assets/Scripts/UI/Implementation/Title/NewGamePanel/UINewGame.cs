@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectS.Define;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -117,6 +118,7 @@ namespace ProjectS.UI.Title
         {
             characterChoice.SaveCharacter();
             ingameOption.OptionSave();
+            GameManager.Instance.LoadScene(SceneType.Ingame);
         }
     }
 

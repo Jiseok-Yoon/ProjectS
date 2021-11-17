@@ -13,27 +13,27 @@ namespace ProjectS.UI.Title
     public class IngameOptionSlot : MonoBehaviour
     {
         private string optionName;
+        public string OptionName { get =>optionName; set => optionName = value; }
         private TextMeshProUGUI optionText;
         public Button nextButton;
         public Button previousButton;
         private SDIngameOption sdIngameOption;
+        public SDIngameOption SdIngameOption { get; set; }
         private int currentOptionIndex;
+        public int CurrentOptionIndex { get => currentOptionIndex; set => currentOptionIndex = value; }
 
         /// <summary>
         /// 옵션 슬롯을 초기화합니다.
         /// </summary>
         public void Initialize()
         {
-            // 옵션의 이름을 부모 객체에서 가져옵니다.
+            // 옵션의 이름을 가져옵니다.
             optionName = transform.parent.name;
-            optionText = GetComponent<TextMeshProUGUI>();
-            // 버튼에 리스너를 답니다.
-            nextButton.onClick.AddListener(NextOptionValue);
-            previousButton.onClick.AddListener(PreviousOptionValue);
+            optionText = GetComponentInChildren<TextMeshProUGUI>();
             // 옵션 이름에 해당하는 SDIngameOption을 불러옵니다.
             sdIngameOption = GameManager.SD.sdIngameOption.Find(_ => _.optionName == optionName);
             // 기본 옵션으로 세팅합니다.
-            currentOptionIndex = sdIngameOption.defaultOptionIndex;
+            SetOptionValue(sdIngameOption.defaultOptionIndex);
         }
 
         /// <summary>
@@ -44,39 +44,24 @@ namespace ProjectS.UI.Title
         {
             currentOptionIndex = index;
             // 인덱스가 옵션 길이보다 크다면 처음 옵션으로 설정합니다.
-            if (currentOptionIndex >= sdIngameOption.optionValue.Length)
+            if (index >= sdIngameOption.optionValue.Length)
             {
-                currentOptionIndex = 0;
+                SetOptionValue(0);
+                return;
             }
             // 인덱스가 0보다 작다면 마지막 옵션으로 설정합니다.
-            if (currentOptionIndex < 0)
+            if (index < 0)
             {
-                currentOptionIndex = sdIngameOption.optionValue.Length - 1;
+                SetOptionValue(sdIngameOption.optionValue.Length - 1);
+                return;
             }
 
             // 옵션 텍스트에 값을 설정합니다.
             optionText.text = sdIngameOption.optionValue[currentOptionIndex];
         }
-        private void NextOptionValue()
-        {
-            SetOptionValue(++currentOptionIndex);
-        }
-        private void PreviousOptionValue()
-        {
-            SetOptionValue(--currentOptionIndex);
-        }
-
-        public string GetOptionName()
-        {
-            return optionName;
-        }
         public string GetOptionValue()
         {
             return optionText.text;
-        }
-        public SDIngameOption GetSDIngameOption()
-        {
-            return sdIngameOption;
         }
     }
 }

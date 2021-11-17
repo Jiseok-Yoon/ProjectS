@@ -4,19 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static ProjectS.Define.IngameOption;
 
 namespace ProjectS.UI.Title
 {
     public class IngameOption : MonoBehaviour
     {
-        public Button difficultyTab;
-        public Button detailTab;
+        public Button difficultyTabButton;
+        public Button detailTabButton;
         public Transform difficultyOptionHolder;
         public Transform detailOptionHolder;
         private List<IngameOptionSlot> ingameOptionSlots = new List<IngameOptionSlot>();
         private enum OptionTabType{ Difficulty, Detail}
-
+        private IngameOptionSlot difficultyOptionSlot;
         /// <summary>
         /// 인게임 옵션 패널을 초기화합니다.
         /// </summary>
@@ -27,13 +29,51 @@ namespace ProjectS.UI.Title
             foreach(IngameOptionSlot optionSlot in GetComponentsInChildren<IngameOptionSlot>())
             {
                 optionSlot.Initialize();
+
+                // 버튼에 리스너를 답니다.
+                optionSlot.nextButton.onClick.AddListener(()=> { NextOptionValue(optionSlot); });
+                optionSlot.previousButton.onClick.AddListener(() => { PreviousOptionValue(optionSlot); });
+
                 ingameOptionSlots.Add(optionSlot);
+
+                // 전체 난이도 옵션의 참조를 가져옵니다.
+                if (optionSlot.OptionName == OptionTabType.Difficulty.ToString())
+                {
+                    difficultyOptionSlot = optionSlot;
+                }
             }
 
-            difficultyTab.onClick.AddListener(() => ChangeOptionTab(OptionTabType.Difficulty));
-            detailTab.onClick.AddListener(() => ChangeOptionTab(OptionTabType.Detail));
+            difficultyTabButton.onClick.AddListener(() => ChangeOptionTab(OptionTabType.Difficulty));
+            detailTabButton.onClick.AddListener(() => ChangeOptionTab(OptionTabType.Detail));
 
             ChangeOptionTab(OptionTabType.Difficulty);
+        }
+        /// <summary>
+        /// 전체 난이도의 다음 버튼이 눌렸을 때 실행됩니다.
+        /// </summary>
+        private void NextDifficultyOptionValue()
+        {
+
+            var difficultySlots = ingameOptionSlots.FindAll(_ => _.SdIngameOption.optionCategory == OptionCategory.Difficulty);
+            foreach(IngameOptionSlot slot in difficultySlots)
+            {
+                //slot.
+            }
+        }
+        /// <summary>
+        /// 전체 난이도의 이전 버튼이 눌렸을 때 실행됩니다.
+        /// </summary>
+        private void PreviousDifficultyOptionValue()
+        {
+
+        }
+        private void NextOptionValue(IngameOptionSlot slot)
+        {
+            slot.SetOptionValue(++slot.CurrentOptionIndex);
+        }
+        private void PreviousOptionValue(IngameOptionSlot slot)
+        {
+            slot.SetOptionValue(--slot.CurrentOptionIndex);
         }
         /// <summary>
         /// 클릭된 탭으로 전환합니다.
@@ -60,7 +100,7 @@ namespace ProjectS.UI.Title
         {
             foreach(IngameOptionSlot optionSlot in ingameOptionSlots)
             {
-                optionSlot.SetOptionValue(optionSlot.GetSDIngameOption().defaultOptionIndex);
+                optionSlot.SetOptionValue(optionSlot.SdIngameOption.defaultOptionIndex);
             }
         }
         /// <summary>
@@ -73,7 +113,7 @@ namespace ProjectS.UI.Title
 
             foreach(IngameOptionSlot slot in ingameOptionSlots)
             {
-                ingameOptionData.SetOptionValue(slot.GetOptionName(), slot.GetOptionValue());
+                ingameOptionData.SetOptionValue(slot.OptionName, slot.GetOptionValue());
             }
 
             // 게임 매니저에 등록합니다.
