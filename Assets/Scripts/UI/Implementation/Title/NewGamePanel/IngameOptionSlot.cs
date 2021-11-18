@@ -18,7 +18,7 @@ namespace ProjectS.UI.Title
         public Button nextButton;
         public Button previousButton;
         private SDIngameOption sdIngameOption;
-        public SDIngameOption SdIngameOption { get; set; }
+        public SDIngameOption SdIngameOption { get => sdIngameOption; set =>sdIngameOption = value; }
         private int currentOptionIndex;
         public int CurrentOptionIndex { get => currentOptionIndex; set => currentOptionIndex = value; }
 

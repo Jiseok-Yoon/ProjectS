@@ -29,18 +29,20 @@ namespace ProjectS.UI.Title
             foreach(IngameOptionSlot optionSlot in GetComponentsInChildren<IngameOptionSlot>())
             {
                 optionSlot.Initialize();
+                ingameOptionSlots.Add(optionSlot);
+
+                // 전체 난이도 옵션이라면 참조를 가져오고 리스너를 달아줍니다.
+                if (optionSlot.OptionName == OptionTabType.Difficulty.ToString())
+                {
+                    difficultyOptionSlot = optionSlot;
+                    difficultyOptionSlot.nextButton.onClick.AddListener(NextDifficultyOptionValue);
+                    difficultyOptionSlot.previousButton.onClick.AddListener(PreviousDifficultyOptionValue);
+                    continue;
+                }
 
                 // 버튼에 리스너를 답니다.
                 optionSlot.nextButton.onClick.AddListener(()=> { NextOptionValue(optionSlot); });
                 optionSlot.previousButton.onClick.AddListener(() => { PreviousOptionValue(optionSlot); });
-
-                ingameOptionSlots.Add(optionSlot);
-
-                // 전체 난이도 옵션의 참조를 가져옵니다.
-                if (optionSlot.OptionName == OptionTabType.Difficulty.ToString())
-                {
-                    difficultyOptionSlot = optionSlot;
-                }
             }
 
             difficultyTabButton.onClick.AddListener(() => ChangeOptionTab(OptionTabType.Difficulty));
@@ -53,11 +55,18 @@ namespace ProjectS.UI.Title
         /// </summary>
         private void NextDifficultyOptionValue()
         {
+            // 변경할 옵션의 인덱스를 설정합니다.
+            int Index = difficultyOptionSlot.CurrentOptionIndex + 1;
 
+            // 사용자 정의 설정 옵션값으로 설정되지 않도록 합니다.
+            if (Index >= difficultyOptionSlot.SdIngameOption.optionValue.Length - 1)
+                Index = 0;
+
+            // 난이도 슬롯들에 적용해줍니다.
             var difficultySlots = ingameOptionSlots.FindAll(_ => _.SdIngameOption.optionCategory == OptionCategory.Difficulty);
             foreach(IngameOptionSlot slot in difficultySlots)
             {
-                //slot.
+                slot.SetOptionValue(Index);
             }
         }
         /// <summary>
@@ -65,15 +74,36 @@ namespace ProjectS.UI.Title
         /// </summary>
         private void PreviousDifficultyOptionValue()
         {
+            // 변경할 옵션의 인덱스를 설정합니다.
+            int Index = difficultyOptionSlot.CurrentOptionIndex -1;
+            // 사용자 정의 설정 옵션값으로 설정되지 않도록 합니다.
+            if (Index < 0)
+                Index = difficultyOptionSlot.SdIngameOption.optionValue.Length - 2;
 
+            // 난이도 슬롯들에 적용해줍니다.
+            var difficultySlots = ingameOptionSlots.FindAll(_ => _.SdIngameOption.optionCategory == OptionCategory.Difficulty);
+            foreach (IngameOptionSlot slot in difficultySlots)
+            {
+                slot.SetOptionValue(Index);
+            }
         }
         private void NextOptionValue(IngameOptionSlot slot)
         {
-            slot.SetOptionValue(++slot.CurrentOptionIndex);
+            // 난이도 탭의 옵션을 조정하는 경우 전체 난이도를 사용자 설정으로 바꿔줍니다.
+            if (slot.SdIngameOption.optionCategory == OptionCategory.Difficulty)
+            {
+                difficultyOptionSlot.SetOptionValue(difficultyOptionSlot.SdIngameOption.optionValue.Length - 1);
+            }
+            slot.SetOptionValue(++(slot.CurrentOptionIndex));
         }
         private void PreviousOptionValue(IngameOptionSlot slot)
         {
-            slot.SetOptionValue(--slot.CurrentOptionIndex);
+            // 난이도 탭의 옵션을 조정하는 경우 전체 난이도를 사용자 설정으로 바꿔줍니다.
+            if (slot.SdIngameOption.optionCategory == OptionCategory.Difficulty)
+            {
+                difficultyOptionSlot.SetOptionValue(difficultyOptionSlot.SdIngameOption.optionValue.Length - 1);
+            }
+            slot.SetOptionValue(--(slot.CurrentOptionIndex));
         }
         /// <summary>
         /// 클릭된 탭으로 전환합니다.

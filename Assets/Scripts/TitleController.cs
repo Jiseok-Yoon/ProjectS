@@ -18,6 +18,12 @@ namespace ProjectS
         private IntroPhase introPhase;
         // 타이틀 버튼 패널
         public UITitleButton titleButtonPanel;
+        // 패널 홀더
+        public Transform PanelHolder;
+        // 로딩 바
+        public LoadingBar loadingBar;
+        // 로딩 바 애니메이션 처리에 사용될 코루틴
+        private Coroutine loadGaugeUpdateCoroutine;
 
         /// <summary>
         /// loadComplete 프로퍼티
@@ -47,6 +53,29 @@ namespace ProjectS
         /// <param name="phase">진행할 페이즈</param>
         private void OnPhase(IntroPhase phase)
         {
+            // 로딩바의 fillAmount가 아직 실제 로딩 게이지 퍼센트로 값이 끝까지 보간이 안됐다면
+            // 아직 코루틴이 실행중임..
+            // 이미 실행중인 코루틴을 또 시작시키면 오류가 발생하므로
+            // 코루틴이 존재한다면 멈춘 후에 새로 변경된 로딩 게이지 퍼센트를 넘겨 코루틴을 다시 시작하게 한다.
+            if (loadGaugeUpdateCoroutine != null)
+            {
+                StopCoroutine(loadGaugeUpdateCoroutine);
+                loadGaugeUpdateCoroutine = null;
+            }
+
+            // 변경된 페이즈가 전체 페이즈 완료가 아니라면
+            if (phase != IntroPhase.Complete)
+            {
+                // 현재 로드 퍼센테이지를 구한다.
+                var loadPer = (float)phase / (float)IntroPhase.Complete;
+                // 구한 퍼센테이지를 로딩바에 적용
+                loadGaugeUpdateCoroutine = StartCoroutine(loadingBar.LoadGaugeUpdate(loadPer));
+            }
+            else
+            {
+                loadingBar.loadFillGauge.fillAmount = 1f;
+            }
+
             // 페이즈별 로직 실행
             switch (phase)
             {
