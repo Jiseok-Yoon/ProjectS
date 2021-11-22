@@ -2562,8 +2562,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleButtonPanel: {fileID: 832235552}
-  PanelHolder: {fileID: 0}
-  loadingBar: {fileID: 0}
+  PanelHolder: {fileID: 1512457342}
+  loadingBar: {fileID: 624933125}
 --- !u!4 &287601753
 Transform:
   m_ObjectHideFlags: 0
@@ -5657,6 +5657,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 624933124}
+  - component: {fileID: 624933125}
   m_Layer: 5
   m_Name: LoadingBar
   m_TagString: Untagged
@@ -5685,6 +5686,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 1400, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &624933125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624933123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9decec695e8de7b49b4ce02b5745566b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadStateDesc: {fileID: 1492931509}
+  loadFillGauge: {fileID: 1245594365}
 --- !u!1 &646197736
 GameObject:
   m_ObjectHideFlags: 0
@@ -15601,7 +15616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1512457342
 RectTransform:
   m_ObjectHideFlags: 0

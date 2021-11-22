@@ -44,6 +44,8 @@ namespace ProjectS
 
         public void Initialize()
         {
+            PanelHolder.gameObject.SetActive(false);
+            loadingBar.gameObject.SetActive(true);
             OnPhase(introPhase);
         }
 
@@ -53,6 +55,7 @@ namespace ProjectS
         /// <param name="phase">진행할 페이즈</param>
         private void OnPhase(IntroPhase phase)
         {
+            loadingBar.SetLoadStateDescription($"Loading {phase.ToString()}");
             // 로딩바의 fillAmount가 아직 실제 로딩 게이지 퍼센트로 값이 끝까지 보간이 안됐다면
             // 아직 코루틴이 실행중임..
             // 이미 실행중인 코루틴을 또 시작시키면 오류가 발생하므로
@@ -74,6 +77,14 @@ namespace ProjectS
             else
             {
                 loadingBar.loadFillGauge.fillAmount = 1f;
+                StartCoroutine(WaitForSeconds());
+                IEnumerator WaitForSeconds()
+                {
+                    yield return new WaitForSeconds(.5f);
+                    PanelHolder.gameObject.SetActive(true);
+                    loadingBar.gameObject.SetActive(false);
+                }
+
             }
 
             // 페이즈별 로직 실행
@@ -119,9 +130,9 @@ namespace ProjectS
                     break;
                 // 로딩 완료
                 case IntroPhase.Complete:
-
-                    LoadComplete = true;
                     allLoaded = true;
+                    LoadComplete = true;
+                    
                     break;
             }
         }
