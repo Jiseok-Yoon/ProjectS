@@ -10,11 +10,11 @@ namespace ProjectS.TileMap
 		public int width = 6;
 		public int height = 6;
 		public HexCell cellPrefab;
-		HexCell[] cells;
+		private HexCell[] cells;
 		public Text cellLabelPrefab;
-		HexMesh hexMesh;
+		private HexMesh hexMesh;
 
-		Canvas gridCanvas;
+		private Canvas gridCanvas;
 
 		void Awake()
 		{
@@ -39,8 +39,38 @@ namespace ProjectS.TileMap
 			// 메쉬를 삼각측량합니다.
 			hexMesh.Triangulate(cells);
 		}
+
+		void Update()
+		{
+			if (Input.GetMouseButton(0))
+			{
+				HandleInput();
+			}
+		}
+		/// <summary>
+		/// 마우스 좌클릭시 셀을 터치합니다.
+		/// </summary>
+		void HandleInput()
+		{
+			Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+			if (Physics.Raycast(inputRay, out hit))
+			{
+				TouchCell(hit.point);
+			}
+		}
+
+		void TouchCell(Vector3 position)
+		{
+			position = transform.InverseTransformPoint(position);
+			HexCoordinates coordinates = HexCoordinates.FromPosition(position);
+			Debug.Log("touched at " + coordinates.ToString());
+		}
+
+
 		void CreateCell(int x, int z, int i)
 		{
+
 			Vector3 position;
 			/// 각 셀의 x축은 내부 반지름의 2배씩 떨어져있습니다.
 			/// x 축은 홀수 행마다 내부 반지름만큼 들어갑니다.

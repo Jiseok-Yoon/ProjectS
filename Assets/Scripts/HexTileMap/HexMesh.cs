@@ -9,13 +9,15 @@ namespace ProjectS.TileMap
 	[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 	public class HexMesh : MonoBehaviour
 	{
-		Mesh hexMesh;
-		List<Vector3> vertices;
-		List<int> triangles;
+		private Mesh hexMesh;
+		private List<Vector3> vertices;
+		private List<int> triangles;
+		private MeshCollider meshCollider;
 
 		void Awake()
 		{
 			GetComponent<MeshFilter>().mesh = hexMesh = new Mesh();
+			meshCollider = gameObject.AddComponent<MeshCollider>();
 			hexMesh.name = "Hex Mesh";
 			vertices = new List<Vector3>();
 			triangles = new List<int>();
@@ -36,6 +38,7 @@ namespace ProjectS.TileMap
 			hexMesh.vertices = vertices.ToArray();
 			hexMesh.triangles = triangles.ToArray();
 			hexMesh.RecalculateNormals();
+			meshCollider.sharedMesh = hexMesh;
 		}
 
 		/// <summary>

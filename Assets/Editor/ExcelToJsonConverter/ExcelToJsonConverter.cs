@@ -10,7 +10,7 @@ using ExcelDataReader;
 using Newtonsoft.Json;
 using UnityEditor;
 
-namespace ProjectW.Editor
+namespace ProjectS.Editor
 {
     public class ExcelToJsonConvert
     {
