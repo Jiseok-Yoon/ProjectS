@@ -13,6 +13,7 @@ namespace ProjectS.TileMap
 		private List<Vector3> vertices;
 		private List<int> triangles;
 		private MeshCollider meshCollider;
+		private List<Color> colors;
 
 		void Awake()
 		{
@@ -20,6 +21,8 @@ namespace ProjectS.TileMap
 			meshCollider = gameObject.AddComponent<MeshCollider>();
 			hexMesh.name = "Hex Mesh";
 			vertices = new List<Vector3>();
+			colors = new List<Color>();
+
 			triangles = new List<int>();
 		}
 		/// <summary>
@@ -30,12 +33,14 @@ namespace ProjectS.TileMap
 		{
 			hexMesh.Clear();
 			vertices.Clear();
+			colors.Clear();
 			triangles.Clear();
 			for (int i = 0; i < cells.Length; i++)
 			{
 				Triangulate(cells[i]);
 			}
 			hexMesh.vertices = vertices.ToArray();
+			hexMesh.colors = colors.ToArray();
 			hexMesh.triangles = triangles.ToArray();
 			hexMesh.RecalculateNormals();
 			meshCollider.sharedMesh = hexMesh;
@@ -55,7 +60,18 @@ namespace ProjectS.TileMap
 					center + HexMetrics.corners[i],
 					center + HexMetrics.corners[i + 1]
 				);
+				AddTriangleColor(cell.color);
 			}
+		}
+		/// <summary>
+		/// 삼각형에 색을 추가합니다.
+		/// </summary>
+		/// <param name="color"></param>
+		void AddTriangleColor(Color color)
+		{
+			colors.Add(color);
+			colors.Add(color);
+			colors.Add(color);
 		}
 		/// <summary>
 		/// 메쉬에 삼각형을 추가합니다.

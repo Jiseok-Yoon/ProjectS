@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
+
+namespace ProjectS.TileMap
+{
+    public class HexMapEditor : MonoBehaviour
+    {
+		public Color[] colors;
+
+		public HexGrid hexGrid;
+
+		private Color activeColor;
+
+		void Awake()
+		{
+			SelectColor(0);
+		}
+		void Update()
+		{
+			if (Input.GetMouseButton(0))
+			{
+				HandleInput();
+			}
+		}
+		/// <summary>
+		/// 마우스 좌클릭시 셀을 터치합니다.
+		/// </summary>
+		void HandleInput()
+		{
+			Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+			if (Physics.Raycast(inputRay, out hit))
+			{
+				hexGrid.ColorCell(hit.point, activeColor);
+			}
+		}
+
+		public void SelectColor(int index)
+		{
+			activeColor = colors[index];
+		}
+	}
+}

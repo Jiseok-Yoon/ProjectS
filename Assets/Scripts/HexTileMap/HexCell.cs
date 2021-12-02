@@ -10,6 +10,7 @@ namespace ProjectS.TileMap
     {
         public HexCoordinates coordinates;
 
+        public Color color;
     }
 
 }
