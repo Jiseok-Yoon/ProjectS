@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using static ProjectS.Define.HexTileMap;
 
 namespace ProjectS.TileMap
 {
@@ -45,33 +45,43 @@ namespace ProjectS.TileMap
 			hexMesh.RecalculateNormals();
 			meshCollider.sharedMesh = hexMesh;
 		}
-
 		/// <summary>
 		/// 셀 하나를 삼각측량합니다.
 		/// </summary>
-		/// <param name="cell">삼각측량할 셀</param>
-		void Triangulate(HexCell cell)
-		{
-			Vector3 center = cell.transform.localPosition;
-			for (int i = 0; i < 6; i++)
+		/// <param name="cell"></param>
+		void Triangulate (HexCell cell)
+        {
+			for (HexDirection d = HexDirection.NE; d <= HexDirection.NW; d++)
 			{
-				AddTriangle(
-					center,
-					center + HexMetrics.corners[i],
-					center + HexMetrics.corners[i + 1]
-				);
-				AddTriangleColor(cell.color);
+				Triangulate(d, cell);
 			}
 		}
 		/// <summary>
-		/// 삼각형에 색을 추가합니다.
+		/// 셀의 6방향의 삼각형을 측량합니다.
 		/// </summary>
-		/// <param name="color"></param>
-		void AddTriangleColor(Color color)
+		/// <param name="direction"></param>
+		/// <param name="cell"></param>
+		void Triangulate(HexDirection direction, HexCell cell)
 		{
-			colors.Add(color);
-			colors.Add(color);
-			colors.Add(color);
+			Vector3 center = cell.transform.localPosition;
+
+			AddTriangle(center,
+				center + HexMetrics.GetFirstCorner(direction),
+				center + HexMetrics.GetSecondCorner(direction));
+			HexCell neighbor = cell.GetNeighbor(direction) ?? cell;
+			AddTriangleColor(cell.color, neighbor.color, neighbor.color);
+		}
+		/// <summary>
+		/// 삼각형에 색을 추가합니다. 인접한 색에 따라 블렌딩 됩니다.
+		/// </summary>
+		/// <param name="c1"></param>
+		/// <param name="c2"></param>
+		/// <param name="c3"></param>
+		void AddTriangleColor(Color c1, Color c2, Color c3)
+		{
+			colors.Add(c1);
+			colors.Add(c2);
+			colors.Add(c3);
 		}
 		/// <summary>
 		/// 메쉬에 삼각형을 추가합니다.

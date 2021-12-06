@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace ProjectS.TileMap
 {
+	
     public class HexMapEditor : MonoBehaviour
     {
 		public Color[] colors;
@@ -21,7 +23,7 @@ namespace ProjectS.TileMap
 		}
 		void Update()
 		{
-			if (Input.GetMouseButton(0))
+			if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
 			{
 				HandleInput();
 			}
@@ -38,7 +40,6 @@ namespace ProjectS.TileMap
 				hexGrid.ColorCell(hit.point, activeColor);
 			}
 		}
-
 		public void SelectColor(int index)
 		{
 			activeColor = colors[index];

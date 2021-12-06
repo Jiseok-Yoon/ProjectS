@@ -42,5 +42,14 @@ namespace ProjectS.Define
         public enum OptionCategory { Difficulty, Detail }
 
     }
+    public class HexTileMap
+    {
+        public enum HexDirection
+        {
+            NE, E, SE, SW, W, NW
+        }
+
+    }
+
 }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static ProjectS.Define.HexTileMap;
 
 namespace ProjectS.TileMap
 {
@@ -79,6 +80,31 @@ namespace ProjectS.TileMap
 			cell.coordinates = HexCoordinates.FromOffsetCoordinates(x, z);
 			// 색 지정
 			cell.color = defaultColor;
+			
+			if (x > 0)
+			{
+				cell.SetNeighbor(HexDirection.W, cells[i - 1]);
+			}
+			if (z > 0)
+			{
+				if ((z & 1) == 0)
+				{
+					cell.SetNeighbor(HexDirection.SE, cells[i - width]);
+					if (x > 0)
+					{
+						cell.SetNeighbor(HexDirection.SW, cells[i - width - 1]);
+					}
+				}
+				else
+				{
+					cell.SetNeighbor(HexDirection.SW, cells[i - width]);
+					if (x < width - 1)
+					{
+						cell.SetNeighbor(HexDirection.SE, cells[i - width + 1]);
+					}
+				}
+			}
+
 
 			// 라벨은 에디터에서만 생성.
 #if UNITY_EDITOR
